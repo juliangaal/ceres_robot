@@ -51,7 +51,7 @@
   
   <xacro:property name="em_button_radius" value="0.0125"/>
   <xacro:property name="em_button_depth" value="0.02" />
-  
+ 
   <link name="base_footprint"/>
   <link name="base_link">
     <visual>
@@ -128,6 +128,20 @@
       <selfCollide>false</selfCollide>
     </gazebo>
   </xacro:macro>
+  
+  <xacro:macro name="box_for_joint" params="name o_x o_y o_z r_x r_y r_z r g b color length height width">
+    <link name="${name}_link">
+      <visual>
+        <origin xyz="${o_x} ${o_y} ${o_z}" rpy="${r_x} ${r_y} ${r_z}" />
+        <geometry>
+          <box size="${length} ${width} ${height}" />
+        </geometry>
+        <material name="${color}">
+          <color rgba="${r} ${g} ${b} 1"/>
+        </material>
+      </visual>
+    </link>
+  </xacro:macro>  
 
   <xacro:wheel
     name="left_front_wheel"
@@ -153,12 +167,130 @@
     name="sick"
     ros_topic="/laser" />
   
+  <xacro:box_for_joint
+    name="pico_flexx_holder1"
+    r_x="0"
+    r_y="0"
+    r_z="0"
+    o_x="0"
+    o_y="0"
+    o_z="0"
+    color="silver"
+    r="0.5"
+    g="0.5"
+    b="0.5"
+    length="0.015"
+    width="0.02"
+    height="0.02" />
+  
+  <xacro:box_for_joint
+    name="pico_flexx_holder2"
+    r_x="0"
+    r_y="0"
+    r_z="0"
+    o_x="0"
+    o_y="0"
+    o_z="0"
+    color="silver"
+    r="0.5"
+    g="0.5"
+    b="0.5"
+    length="0.015"
+    width="0.02"
+    height="0.02" />
+  
+  <xacro:box_for_joint
+    name="pico_flexx_model"
+    r_x="0"
+    r_y="0"
+    r_z="0"
+    o_x="0"
+    o_y="0"
+    o_z="0"
+    color="black"
+    r="0"
+    g="0"
+    b="0"
+    length="0.01"
+    width="0.067"
+    height="0.02"/>
+
+ <!-- 
+  <xacro:box_for_joint
+    name="pico_flexx_bottom_plate"
+    r_x="0"
+    r_y="0"
+    r_z="0"
+    color="silver"
+    r="0.5"
+    g="0.5"
+    b="0.5"
+    length="0.01"
+    width="0.065"
+    height="0.002"/>
+  /-->
+
+  <link name="pico_flexx_optical_frame" type="fixed">
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder length="0.004" radius="0.0035"/>
+        </geometry>
+        <material name="white">
+          <color rgba="255 255 255 1"/>
+        </material>
+    </visual>
+  </link>
+
+  <link name="pico_flexx_axis" type="fixed">
+    <visual>
+        <origin xyz="0 0 0" rpy="0 ${M_PI/2} ${M_PI/2}"/>
+        <geometry>
+          <cylinder length="0.02" radius="0.01"/>
+        </geometry>
+        <material name="silver">
+          <color rgba="0.6 0.6 0.5 1"/>
+        </material>
+    </visual>
+  </link>
+ 
+  <joint name="pico_flexx_holder_to_base_joint" type="fixed">
+   <parent link="base_link" />
+   <child link="pico_flexx_holder1_link"/>
+   <origin xyz="${body_length/2} 0 ${body_height/2 - 0.01}"/>
+  </joint>
+  
+  <joint name="pico_flexx_axis_to_pico_flexx_holder" type="continuous">
+    <parent link="pico_flexx_holder1_link"/>
+    <child link="pico_flexx_axis"/>
+    <origin xyz="0.01 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+  
+  <joint name="pico_flexx" type="fixed">
+    <parent link="pico_flexx_holder2_link" />
+    <child link="pico_flexx_model_link" />
+    <origin xyz="0.005 0 0" />
+  </joint>
+
+  <joint name="pico_flexx_joint" type="fixed">
+    <parent link="pico_flexx_axis"/>
+    <child link="pico_flexx_holder2_link"/>
+    <origin xyz="0.01 0 0"/>
+  </joint>
+  
   <joint name="sick_to_base_joint" type="fixed">
     <parent link="base_link" />
     <child link="sick_mount_link" />
     <origin xyz="${body_length/2 - 0.05} 0 ${body_height/2 - 0.015}"/>
   </joint>
 
+  <joint name="pico_flexx_lense" type="fixed">
+    <parent link="pico_flexx_model_link" />
+    <child link="pico_flexx_optical_frame" />
+    <origin xyz="0.005 -0.009 0" rpy="${M_PI/2} 0 ${M_PI/2}"/>
+  </joint>
+  
   <link name="imu">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -201,7 +333,7 @@
     <origin
       xyz=" ${-body_length/2}
             0.03
-            -0.05
+           -0.05
           " />
   </joint>
   
