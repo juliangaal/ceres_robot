@@ -1,19 +1,17 @@
 <?xml version="1.0"?>
 <package>
   <name>ceres_bringup</name>
-  <version>0.0.0</version>
+  <version>0.1.0</version>
   <description>The ceres_bringup package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
-  <!-- Example:  -->
-  <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="robot@todo.todo">robot</maintainer>
+  <maintainer email="spuetz@uos.de">Sebastian Puetz</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
   <!-- Commonly used license strings: -->
   <!--   BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3 -->
-  <license>TODO</license>
+  <license>BSD</license>
 
 
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
@@ -25,9 +23,8 @@
   <!-- Author tags are optional, multiple are allowed, one per tag -->
   <!-- Authors do not have to be maintainers, but could be -->
   <!-- Example: -->
-  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
-
-
+  <author email="gjulian@uos.de">Julian Gaal</author>
+  <author email="chbroecker@uos.de">Chris Broecker</author>
   <!-- The *_depend tags are used to specify dependencies -->
   <!-- Dependencies can be catkin packages or system dependencies -->
   <!-- Examples: -->
