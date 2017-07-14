@@ -164,7 +164,7 @@
     xyz="${axis_back} ${axis_right} ${axis_height}" />
   
   <xacro:sick_tim551
-    name="sick"
+    name="laser"
     ros_topic="/laser" />
   
   <xacro:box_for_joint
@@ -281,14 +281,14 @@
   
   <joint name="sick_to_base_joint" type="fixed">
     <parent link="base_link" />
-    <child link="sick_mount_link" />
+    <child link="laser_mount_link" />
     <origin xyz="${body_length/2 - 0.05} 0 ${body_height/2 - 0.015}"/>
   </joint>
 
   <joint name="pico_flexx_lense" type="fixed">
     <parent link="pico_flexx_model_link" />
     <child link="pico_flexx_optical_frame" />
-    <origin xyz="0.005 -0.009 0" rpy="${M_PI/2} 0 ${M_PI/2}"/>
+    <origin xyz="0.005 -0.009 0.002" rpy="${M_PI/2} 0 ${M_PI/2}"/>
   </joint>
   
   <link name="imu">
