@@ -5,7 +5,8 @@
   <description>The ceres_bringup package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
-  <maintainer email="spuetz@uos.de">Sebastian Puetz</maintainer>
+  <maintainer email="gjulian@uos.de">Julian Gaal</maintainer>
+  <maintainer email="chbroecker@uos.de">Christopher Broecker</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
