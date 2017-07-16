@@ -1,5 +1,6 @@
 # Ceres
 
+![alt-text](http://i.imgur.com/jh4v97F.jpg)
 
 ## Maintainers
 * Julian Gaal | [contact](mailto:gjulian@uos.de)
