@@ -47,7 +47,7 @@ echo "Setup bashrc to include devel/setup.bash and ceres.rc"
 echo 'export CERES_WORKSPACE="ceres_ws"' >> ~/.bashrc
 echo '. ${CERES_WORKSPACE}/src/ceres_robot/ceres_install/ceres.rc' >> ~/.bashrc
 echo '' >> ~/.bashrc
-echo 'source ~/${CERES_WORKSPACE}/setup.bash' >> ~/.bashrc
+echo 'source ~/${CERES_WORKSPACE}/devel/setup.bash' >> ~/.bashrc
 source ~/.bashrc
 
 echo ""
