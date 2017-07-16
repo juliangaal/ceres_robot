@@ -1,8 +1,8 @@
 # Ceres
 
 # Maintainers
-* Julian Gaal gjulian@uos.de [contact](mailto:gjulian@uos.de)
-* Christopher Broecker chbroecker@uos.de [contact](mailto:chbroecker@uos.de)
+* Julian Gaal gjulian@uos.de | [contact](mailto:gjulian@uos.de)
+* Christopher Broecker chbroecker@uos.de | [contact](mailto:chbroecker@uos.de)
 
 # Branches
 * `kinetic`: basic setup, see image
@@ -14,7 +14,9 @@ For the installation script to work, you need to place the picoflexx driver `lib
 
 After that, install everything with the follwing scripts: save them to your machine 
 
-`wget https://raw.githubusercontent.com/uos/ceres_robot/[insert_branch]/ceres_install/setup_ceres.bash` and
+`wget https://raw.githubusercontent.com/uos/ceres_robot/[insert_branch]/ceres_install/setup_ceres.bash` 
+
+and
 
 `https://raw.githubusercontent.com/uos/ceres_robot/kinetic/ceres_install/setup_nuc.bash` 
 
