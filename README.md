@@ -25,12 +25,12 @@ and
 and execute them
 
 ## Remote Connection
-We provide a script to do so (see /ceres_install/ceres.rc)
-Add the `.ssh-config` file to your home directory for these commands to work
+We provide a script to do so, see `/ceres_install/ceres.rc`. *Make sure it is sourced in `~/.bashrc`*
+(*Recommended*: Add the `.ssh-config` in `/ceres_install` file to your home directory)
 
 * On client: `ssh -X [insert_robot]`, e.g. `ssh -X blitza.funky.uos.de`
 * On host:   `ceres-host`
-* On client: `ceres-client-ip [insert_robot]`
+* On client: `ceres-client-ip [insert_robot_name]`
 * Use rviz on client!
 
 
