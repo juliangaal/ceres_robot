@@ -28,7 +28,7 @@ and execute them
 We provide a script to do so (see /ceres_install/ceres.rc)
 Add the `.ssh-config` file to your home directory for these commands to work
 
-* On client: `ssh -X [insert_robot]`, e.g. `ssh -X blitza`
+* On client: `ssh -X [insert_robot]`, e.g. `ssh -X blitza.funky.uos.de`
 * On host:   `ceres-host`
 * On client: `ceres-client-ip [insert_robot]`
 * Use rviz on client!
