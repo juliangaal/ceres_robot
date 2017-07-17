@@ -20,7 +20,7 @@ After that, install everything with the follwing scripts. save them to your mach
 
 and
 
-`wget https://raw.githubusercontent.com/uos/ceres_robot/kinetic/ceres_install/setup_nuc.bash` so set up NUC
+`wget https://raw.githubusercontent.com/uos/ceres_robot/[insert_branch]/ceres_install/setup_nuc.bash` so set up NUC
 
 and execute them
 
