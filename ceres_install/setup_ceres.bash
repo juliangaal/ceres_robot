@@ -13,6 +13,13 @@ mkdir -p ~/ceres_ws
 cd ~/ceres_ws
 
 echo ""
+echo "Set correct hostname for connect.rc script to work"
+host=$(hostname)
+if [[ $host != *"funky.uos.de"* ]]; then
+  sudo hostname $host.funky.uos.de
+fi
+
+echo ""
 echo "Pulling .rosinstall script"
 # Pull rosinstall file and executes it
 wstool init src https://raw.githubusercontent.com/juliangaal/ceres_robot/kinetic/ceres_install/ceres.rosinstall
