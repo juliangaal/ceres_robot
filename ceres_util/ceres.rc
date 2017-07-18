@@ -59,7 +59,7 @@ ssh-zapdos(){
   ceres-ssh zapdos
 }
 
-# ssh onto pluto (indoor scenario)
+# ssh onto the different ceres robots
 ceres-ssh(){
   if [ -n "$1" ]
   then
