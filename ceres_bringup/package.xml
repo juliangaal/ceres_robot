@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>ceres_bringup</name>
-  <version>0.1.0</version>
+  <version>1.0.0</version>
   <description>The ceres_bringup package</description>
 
   <maintainer email="gjulian@uos.de">Julian Gaal</maintainer>
@@ -10,16 +10,14 @@
   <license>BSD</license>
   <author email="gjulian@uos.de">Julian Gaal</author>
   <author email="chbroecker@uos.de">Chris Broecker</author>
-  <!-- The *_depend tags are used to specify dependencies -->
-  <!-- Dependencies can be catkin packages or system dependencies -->
-  <!-- Examples: -->
-  <!-- Use build_depend for packages you need at compile time: -->
-  <!--   <build_depend>message_generation</build_depend> -->
-  <!-- Use buildtool_depend for build tool packages: -->
-  <!--   <buildtool_depend>catkin</buildtool_depend> -->
-  <!-- Use run_depend for packages you need at runtime: -->
-  <!--   <run_depend>message_runtime</run_depend> -->
-  <!-- Use test_depend for packages you need only for testing: -->
-  <!--   <test_depend>gtest</test_depend> -->
+  
   <buildtool_depend>catkin</buildtool_depend>
+  
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>ceres_description</run_depend>
+  <run_depend>volksbot_driver</run_depend>
+  <run_depend>sick_tim</run_depend>
+  <run_depend>pico_flexx_driver</run_depend>
+  <run_depend>phidgets_drivers<r/run_depend>
 </package>
