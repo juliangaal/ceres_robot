@@ -20,17 +20,17 @@ After that, install everything with the follwing scripts. save them to your mach
 
 and
 
-`wget https://raw.githubusercontent.com/uos/ceres_robot/kinetic/ceres_install/setup_nuc.bash` so set up NUC
+`wget https://raw.githubusercontent.com/uos/ceres_robot/[insert_branch]/ceres_install/setup_nuc.bash` so set up NUC
 
 and execute them
 
 ## Remote Connection
-We provide a script to do so (see /ceres_install/ceres.rc)
-Add the `.ssh-config` file to your home directory for these commands to work
+We provide a script to do so, see `/ceres_install/ceres.rc`. *Make sure it is sourced in `~/.bashrc`*
+(*Recommended*: Add the `.ssh-config` in `/ceres_install` file to your home directory)
 
-* On client: `ssh -X [insert_robot]`, e.g. `ssh -X blitza`
+* On client: `ssh -X [robot_ssh]`, e.g. `ssh -X robot@blitza.funky.uos.de`
 * On host:   `ceres-host`
-* On client: `ceres-client-ip [insert_robot]`
+* On client: `ceres-client-ip [robot_name]`
 * Use rviz on client!
 
 

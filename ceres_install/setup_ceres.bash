@@ -13,6 +13,13 @@ mkdir -p ~/ceres_ws
 cd ~/ceres_ws
 
 echo ""
+echo "Set correct hostname for connect.rc script to work"
+host=$(hostname)
+if [[ $host != *"funky.uos.de"* ]]; then
+  sudo hostname $host.funky.uos.de
+fi
+
+echo ""
 echo "Pulling .rosinstall script"
 # Pull rosinstall file and executes it
 wstool init src https://raw.githubusercontent.com/juliangaal/ceres_robot/kinetic/ceres_install/ceres.rosinstall
@@ -42,13 +49,14 @@ cd ~/ceres_ws/
 source /opt/ros/kinetic/setup.bash
 catkin_make
 
-echo ""
-echo "Setup bashrc to include devel/setup.bash and ceres.rc"
-echo 'export CERES_WORKSPACE="ceres_ws"' >> ~/.bashrc
-echo '. ~/${CERES_WORKSPACE}/src/ceres_robot/ceres_install/ceres.rc' >> ~/.bashrc
-echo '' >> ~/.bashrc
-echo 'source ~/${CERES_WORKSPACE}/devel/setup.bash' >> ~/.bashrc
-source ~/.bashrc
+if ! grep -q 'ceres.rc' "${bashrc_file}" ; then
+  echo 'export CERES_WORKSPACE="/home/robot/ceres_ws"' >> ~/.bashrc
+  echo '. ${CERES_WORKSPACE}/src/ceres_robot/ceres_install/ceres.rc' >> ~/.bashrc
+fi
+
+if ! grep -q 'devel/setup.bash' "${bashrc_file}"; then 
+  echo 'source ${CERES_WORKSPACE}/devel/setup.bash' >> ~/.bashrc
+fi
 
 echo ""
 echo "Completed! Rebooting in"
