@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>ceres_description</name>
-  <version>0.1.0</version>
+  <version>1.0.0</version>
   <description>The ceres_description package</description>
 
   <maintainer email="gjulian@uos.de">Julian Gaal</maintainer>
@@ -11,7 +11,12 @@
 
   <author email="gjulian@uos.de">Julian Gaal</author>
   <author email="chbroecker@uos.de">Christopher Broecker</author>
-  <!-- Use run_depend for packages you need at runtime: -->
-  <!--   <run_depend>message_runtime</run_depend> -->
+  
   <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>urdf</run_depend>
+  <run_depend>xacro</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>uos_common_urdf</run_depend>
 </package>
+~         
