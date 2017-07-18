@@ -58,7 +58,7 @@ The script contains the following functions:
   * starts a basic tmux session for ceres
 
 ## Remote Connection
-* Example Host:
+* Example Robot:
   * flamara
 * Example Client:
   * your personal laptop
