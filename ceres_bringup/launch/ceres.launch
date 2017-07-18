@@ -14,7 +14,7 @@
 
   ### Sensors
   <include if="$(arg use_volksbot_driver)" file="$(find ceres_bringup)/launch/volksbot.launch"/>
-  <include if="$(arg use_sick_tim)" file="$(find ceres_bringup)/launch/sick_tim551_2050001.launch"/>
+  <include if="$(arg use_sick_tim)" file="$(find ceres_bringup)/launch/sick_tim.launch"/>
   <include if="$(arg use_imu)" file="$(find ceres_bringup)/launch/imu_single_nodes.launch"/>
   <include if="$(arg use_pico_flexx)" file="$(find ceres_bringup)/launch/pico_flexx_driver.launch"/>
 </launch>

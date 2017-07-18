@@ -1,36 +1,43 @@
 # Ceres
 
-![alt-text](http://i.imgur.com/jh4v97F.jpg)
-
 ## Maintainers
-* Julian Gaal | [contact](mailto:gjulian@uos.de)
-* Christopher Broecker | [contact](mailto:chbroecker@uos.de)
-
-## Branches
-* `kinetic`: basic setup, see image
-* (Future branch `kinetic-xtion`: add xtion camera to your setup)
-* (Future branch `kinetic-puck`: add Velodye Puck)
+* [Julian Gaal](mailto:gjulian@uos.de)
+* [Christopher Broecker](mailto:chbroecker@uos.de)
+* [Sebastian Pütz](mailto:spuetz@uos.de)
 
 ## Installation
-For the installation script to work, you need to place the picoflexx driver `libroyale.zip` in `~/Downloads`, after downloading it manually from the [manufacturers website](http://pmdtec.com/picofamily/software/) with the costumer password provided in the pico flexx casing.
 
-After that, install everything with the follwing scripts. save them to your machine 
+### Non ROS Dependencies
 
-`wget https://raw.githubusercontent.com/uos/ceres_robot/[insert_branch]/ceres_install/setup_ceres.bash` to set up ROS
+Install wstool
+`sudo apt install python-wstool
+mkdir -p ~/ceres_ws` 
 
-and
+### ROS Packages
+Use wstool to pull all required packages:
+`wstool init src https://raw.githubusercontent.com/juliangaal/ceres_robot/kinetic/ceres_install/ceres.rosinstall
+wstool update -t src`
 
-`wget https://raw.githubusercontent.com/uos/ceres_robot/[insert_branch]/ceres_install/setup_nuc.bash` so set up NUC
+### Pico Flexx Royale Libary
+You need to download the royale SDK `libroyale.zip` from the [manufacturers website](http://pmdtec.com/picofamily/software/) with the costumer password provided in the pico flexx casing. Extract the linux 64 bit archive from the extracted SDK to `ceres_ws/src/pico_flexx_driver/royale`
 
-and execute them
+### UDEV Rules
+Install the udev rules for the pico_flexx
+`cd ~/ceres_ws/src/pico_flexx_driver/royale
+sudo cp libroyale-<version_number>-LINUX-64Bit/driver/udev/10-royale-ubuntu.rules /etc/udev/rules.d/`
+
+Install the udev rules for the sick tim
+sudo cp ~/ceres_ws/src/sick_tim/udev/81-sick-tim3xx.rules /etc/udev/rules.d
+
+Install the udev rules for the phidgets driver
+sudo cp ~/ceres_ws/src/phidgets_drivers/phidgets_api/share/udev/99-phidgets.rules /etc/udev/rules.d
+
 
 ## Remote Connection
-We provide a script to do so, see `/ceres_install/ceres.rc`. *Make sure it is sourced in `~/.bashrc`*
-(*Recommended*: Add the `.ssh-config` in `/ceres_install` file to your home directory)
+We provide a script for an easy remote connection setup `ceres_util/ceres.rc`. *Make sure it is sourced in `~/.bashrc`*
 
-* On client: `ssh -X [robot_ssh]`, e.g. `ssh -X robot@blitza.funky.uos.de`
-* On host:   `ceres-host`
-* On client: `ceres-client-ip [robot_name]`
-* Use rviz on client!
-
+* robots: `ceres-host`
+* client:
+  * `ceres-client [robot_name]`
+  * `ceres-client-ip [ŕobot_name]`
 
