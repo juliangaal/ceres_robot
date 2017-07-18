@@ -2,10 +2,9 @@
   ### Upload Pluto to parameter server
   <include file="$(find ceres_description)/launch/upload_ceres.launch"/>      	
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
-  <node name="joint_stae_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
     <param name="use_gui" value="false" />
   </node>
-  <!--<node name="rviz" pkg="rviz" type="rviz" />/-->
 
   ### Roboter Setup
   <arg name="use_volksbot_driver" default="true" />
@@ -15,7 +14,7 @@
 
   ### Sensors
   <include if="$(arg use_volksbot_driver)" file="$(find ceres_bringup)/launch/volksbot.launch"/>
-  <include if="$(arg use_sick_tim)" file="$(find ceres_bringup)/launch/sick_tim551_2050001.launch" ns="sick_tim"/>
+  <include if="$(arg use_sick_tim)" file="$(find ceres_bringup)/launch/sick_tim551_2050001.launch"/>
   <include if="$(arg use_imu)" file="$(find ceres_bringup)/launch/imu_single_nodes.launch"/>
   <include if="$(arg use_pico_flexx)" file="$(find ceres_bringup)/launch/pico_flexx_driver.launch"/>
 </launch>
