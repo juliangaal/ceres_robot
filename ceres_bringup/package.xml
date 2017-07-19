@@ -19,5 +19,5 @@
   <run_depend>volksbot_driver</run_depend>
   <run_depend>sick_tim</run_depend>
   <run_depend>pico_flexx_driver</run_depend>
-  <run_depend>phidgets_drivers<r/run_depend>
+  <run_depend>phidgets_drivers</run_depend>
 </package>
