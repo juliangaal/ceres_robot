@@ -11,10 +11,14 @@ ceres(){
 # of course.
 cmux() {
   tmux new -ds roscore
+  tmux send -t roscore ceres-host ENTER
   tmux send -t roscore roscore ENTER
   tmux new -ds bringup
+  tmux send -t bringup ceres-host ENTER
   tmux new -ds work
+  tmux send -t work ceres-host ENTER
   tmux new -ds debug
+  tmux send -t debug ceres-host ENTER
 }
 
 
