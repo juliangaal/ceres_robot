@@ -1,5 +1,7 @@
 # Ceres
 
+![ceres_robot](ceres_docs/images/ceres_robot.jpg?raw=true "ceres_robot")
+
 ## Maintainers
 * [Julian Gaal](mailto:gjulian@uos.de)
 * [Christopher Broecker](mailto:chbroecker@uos.de)
@@ -58,7 +60,7 @@ The script contains the following functions:
   * starts a basic tmux session for ceres
 
 ## Remote Connection
-* Example Robot:
+* Example Host:
   * flamara
 * Example Client:
   * your personal laptop
